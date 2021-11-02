@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+
+{% block content %}
+<div class="btn btn-primary">
+    <a>
+        ثبت تغییرات
+    </a>
+</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">مبدا</th>
+        <th scope="col">مقصد</th>
+        <th scope="col">ایرلاین</th>
+        <th scope="col">شماره پرواز</th>
+        <th scope="col">تاریخ پرواز</th>
+        <th scope="col">ساعت پرواز</th>
+        <th scope="col">ساعت ثبت تغییرات</th>
+        <th scope="col">سازنده</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        <tr>
+        {% for flight in Flight %}
+          <a href=""><th scope="row" >{{ flight.id}}</th>
+          <td><a href="{% url 'first:flight_detail' flight.id %}">{{ flight.Flight_Origin }}</a></td>
+          <td>{{ flight.Flight_Distination }}</td>
+          <td>{{ flight.Flight_Airline }}</td>
+          <td>{{ flight.Flight_Nomber }}</td>
+          <td>{{ flight.Flight_Date|date:"SHORT_DATE_FORMAT" }}</td>
+          <td>{{ flight.Flight_Time|time:"H:i" }}</td>
+          <td>{{ flight.Flight_created }}</td>
+          <td>user</td>
+        </a>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+
+
+{% endblock %}
