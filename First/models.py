@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import Model
 from django.db.models.enums import Choices
+from django.db.models.fields import BooleanField
 from django.db.models.fields.related import create_many_to_many_intermediary_model
+from django.forms import widgets
 
 class Flight(models.Model):
     iranair = 'IR'
@@ -32,6 +34,8 @@ class Flight(models.Model):
     shiraz='SYZ'
     kermanshah='KSH'
     mashhad='MHD'
+
+    is_valid='باطل'
     City=[
         (tehran,'tehran'),
         (abadan,'abadan'),
@@ -47,7 +51,7 @@ class Flight(models.Model):
         (varesh,'varesh'),(flypersia,'flypersia'),
 
     ]
-    Flight_Origin = models.CharField(max_length=30,choices=City)
+    Flight_Origin = models.CharField(max_length=30,choices=City,)
     Flight_Distination = models.CharField(max_length=30,choices=City)
     Flight_Airline = models.CharField(max_length=10,choices=Airline)
     Flight_Nomber = models.CharField(max_length=10)
@@ -55,6 +59,10 @@ class Flight(models.Model):
     Flight_Time = models.TimeField()
     created = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(blank=True,null=True)
+    is_valid = BooleanField(default=False)
+    schadule_Date = models.DateField()
+    schadule_Time = models.TimeField()
+
 
     def __str__(self):
         return f'{self.Flight_Nomber} {self.Flight_Origin} to {self.Flight_Distination} in {self.Flight_Date} at {self.Flight_Time} '

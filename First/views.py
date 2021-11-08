@@ -4,6 +4,7 @@ from django.views.generic.list import ListView
 from First.models import Flight
 from django.views.generic import DetailView
 from .models import Flight
+from .forms import AddSchaduleForm
 
 
 
@@ -18,3 +19,10 @@ def DetailFlight(request,flight_id):
     flight = get_object_or_404(Flight,pk=flight_id)
     
     return render(request,'First/detail_schadule.html',{'flight':flight})
+
+def add_Schadule(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = AddSchaduleForm()
+    return render(request,'First/add_Schadule.html', {'form':form} )

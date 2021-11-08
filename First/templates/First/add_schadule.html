@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Add Schadule {% endblock %}
+
+{% block content %}
+<a>salam</a>
+
+    <div class="fomr form-body">
+        <form action="" class="post">
+            {% csrf_token %}
+            
+            <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>مبدا ..</option>
+                <option value="1">{{ form.Flight_Origin }}</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            {{ form.Flight_Origin }}
+            {{form}}
+            <input type="submit" value="submit" class="btn btn-primary">
+
+
+        </form>
+
+
+    </div>
+
+
+{% endblock %}
