@@ -4,12 +4,12 @@
 
 
 {% block content %}
-<div >
+<div class=" mx-5">
     <a class="btn btn-primary" href="{% url 'first:add_Schadule' %}">
         ثبت تغییرات
     </a>
 </div>
-<table class="table table-striped">
+<table class="table table-striped mx-5 ">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -26,7 +26,10 @@
     
     <tbody>
         <tr>
-        {% for flight in Flight %}
+<form action="" method="POST">
+  {% csrf_token %}
+
+          {% for flight in Flight %}
           <a href=""><th scope="row" >{{ flight.id}}</th>
           <td><a href="{% url 'first:flight_detail' flight.id %}">{{ flight.Flight_Origin }}</a></td>
           <td>{{ flight.Flight_Distination }}</td>
@@ -34,7 +37,7 @@
           <td>{{ flight.Flight_Nomber }}</td>
           <td>{{ flight.Flight_Date|date:"SHORT_DATE_FORMAT" }}</td>
           <td>{{ flight.Flight_Time|time:"H:i" }}</td>
-          <td>{{ flight.Flight_created }}</td>
+          <td>{{ flight.created }}</td>
           <td>user</td>
         </a>
         </tr>
@@ -42,6 +45,6 @@
         
       </tbody>
     </table>
-
+  </form>
 
 {% endblock %}

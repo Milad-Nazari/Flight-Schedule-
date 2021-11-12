@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import Model
@@ -7,35 +8,35 @@ from django.db.models.fields.related import create_many_to_many_intermediary_mod
 from django.forms import widgets
 
 class Flight(models.Model):
-    iranair = 'IR'
-    mahan = 'W5'
-    airtour = 'B9'
-    aseman = 'EP'
-    zagros = 'ZV'
-    kish = 'Y9'
-    qeshm = 'QB'
-    ata = 'I3'
-    meraj = 'JI'
-    taban = 'HH'
-    caspian='Rv'
-    karoon = 'Nv'
-    sepehran_ = "ISS"
-    varesh='VR'
-    flypersia = 'PR'
+    iranair = 'iranair'
+    mahan = 'mahan'
+    airtour = 'airtour'
+    aseman = 'aseman'
+    zagros = 'zagros'
+    kish = 'kish'
+    qeshm = 'qeshm'
+    ata = 'ata'
+    meraj = 'meraj'
+    taban = 'taban'
+    caspian='caspian'
+    karoon = 'karoon'
+    sepehran_ = "sepehran_"
+    varesh='varesh'
+    flypersia = 'flypersia'
     
-    tehran='تهران'
-    abadan='ABD'
-    isfahan='IFN'
-    ahvaz='AWZ'
-    tabriz= 'TBZ'
-    kish='KIH'
-    chabahar='ZBR'
-    khoramabad='KHD'
-    shiraz='SYZ'
-    kermanshah='KSH'
-    mashhad='MHD'
+    tehran='tehran'
+    abadan='abadan'
+    isfahan='isfahan'
+    ahvaz='ahvaz'
+    tabriz= 'tabriz'
+    kish='kish'
+    chabahar='chabahar'
+    khoramabad='khoramabad'
+    shiraz='shiraz'
+    kermanshah='kermanshah'
+    mashhad='mashhad'
 
-    is_valid='باطل'
+    
     City=[
         (tehran,'tehran'),
         (abadan,'abadan'),
@@ -59,7 +60,7 @@ class Flight(models.Model):
     Flight_Time = models.TimeField()
     created = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(blank=True,null=True)
-    is_valid = BooleanField(default=False)
+    # is_valid = BooleanField(default=False)
     schadule_Date = models.DateField()
     schadule_Time = models.TimeField()
 

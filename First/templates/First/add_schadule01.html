@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Add Schadule {% endblock %}
+
+{% block content %}
+
+
+    <div class="fomr form-body mx-5 ">
+        <form action="" class="post">
+            {% csrf_token %}
+            
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-form-label">مبدا <br/>{{ form.Flight_Origin }}</label>
+                  <div class="col-sm-10"></div>
+                  <label for="inputEmail3" class="col-form-label">مقصد</label>
+                  <div class="col-sm-10">{{ form.Flight_Distination }}</div>
+                </div>
+
+            {{form}}
+            <input type="submit" value="submit" class="btn btn-primary">
+
+
+        </form>
+
+
+    </div>
+
+
+{% endblock %}

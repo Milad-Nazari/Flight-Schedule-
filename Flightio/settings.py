@@ -23,7 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'First.apps.FirstConfig',
-]
+    'Lib.site-packages.bootstrap_datepicker_plus',
+    
+    ]
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
